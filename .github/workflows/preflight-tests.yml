@@ -32,10 +32,10 @@ jobs:
           
       - name: Check container image
         run: |
-          sudo export PFLT_LOGLEVEL=trace
-          sudo export PFLT_JUNIT=true
-          sudo preflight check container quay.io/mayurwaghmode111/demo-container-image:power
+          export PFLT_LOGLEVEL=trace
+          export PFLT_JUNIT=true
+          preflight check container quay.io/mayurwaghmode111/demo-container-image:power
           
       - name: Check junit xml results
         run: |
-          sudo cat artifacts/results-junit.xml
+          cat artifacts/results-junit.xml
