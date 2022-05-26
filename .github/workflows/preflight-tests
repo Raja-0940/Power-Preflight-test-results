@@ -1,1 +1,42 @@
+ This is a workflow for executing the container certification
 
+name: Preflight results from IBM Power
+  
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+  
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build
+  Preflight_results:
+      runs-on: ppc64le
+      steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+          
+      - name: check the Power version
+        run: |
+          sudo lscpu
+
+      - name: Install preflight 
+        run: |
+          sudo wget https://github.com/redhat-openshift-ecosystem/openshift-preflight/releases/download/1.2.1/preflight-linux-ppc64le
+          sudo chmod u+x preflight-linux-ppc64le
+          sudo mv preflight-linux-ppc64le /usr/local/bin/preflight
+          sudo preflight --version
+          
+      - name: Check container image
+        run: |
+          sudo export PFLT_LOGLEVEL=trace
+          sudo export PFLT_JUNIT=true
+          sudo preflight check container quay.io/mayurwaghmode111/demo-container-image:power
+          
+      - name: Check junit xml results
+        run: |
+          sudo cat artifacts/results-junit.xml
