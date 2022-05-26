@@ -27,7 +27,8 @@ jobs:
           sudo wget https://github.com/redhat-openshift-ecosystem/openshift-preflight/releases/download/1.2.1/preflight-linux-ppc64le
           sudo chmod u+x preflight-linux-ppc64le
           sudo mv preflight-linux-ppc64le /usr/local/bin/preflight
-          sudo preflight --version
+          sudo chmod 777 /usr/local/bin/preflight
+          preflight --version
           
       - name: Check container image
         run: |
