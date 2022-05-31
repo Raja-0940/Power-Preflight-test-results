@@ -40,7 +40,11 @@ jobs:
         run: |
           echo "Junit results"
           cat artifacts/results-junit.xml
-          echo "Preflight logs"
+      
+      - name: Check Preflight logs
+        run: |
           cat artifacts/preflight.log
-          echo "Results output"
+       
+      - name: Check Preflight logs
+        run: |
           cat artifacts/results.json
