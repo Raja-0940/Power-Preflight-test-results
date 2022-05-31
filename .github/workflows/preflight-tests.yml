@@ -38,13 +38,12 @@ jobs:
           
       - name: Check junit xml results
         run: |
-          echo "Junit results"
           cat artifacts/results-junit.xml
           ls artifacts/
       
       - name: Check Preflight logs
         run: |
-          cat artifacts/preflight.log
+          cat preflight.log
        
       - name: Check results output
         run: |
