@@ -45,6 +45,6 @@ jobs:
         run: |
           cat artifacts/preflight.log
        
-      - name: Check Preflight logs
+      - name: Check results output
         run: |
           cat artifacts/results.json
