@@ -20,31 +20,6 @@ jobs:
           
       - name: check the Power version
         run: |
-          sudo lscpu
-
-      - name: Install preflight 
-        run: |
-          sudo curl -s https://api.github.com/repos/redhat-openshift-ecosystem/openshift-preflight/releases/latest|grep browser_download_url |grep ppc64le|cut -d : -f 2,3|tr -d \"|xargs curl -LO
-          sudo chmod u+x preflight-linux-ppc64le
-          sudo mv preflight-linux-ppc64le /usr/local/bin/preflight
-          sudo chmod 777 /usr/local/bin/preflight
-          preflight --version
-          
-      - name: Check container image
-        run: |
-          export PFLT_LOGLEVEL=trace
-          export PFLT_JUNIT=true
-          preflight check container quay.io/mayurwaghmode111/demo-container-image:power
-          
-      - name: Check junit xml results
-        run: |
-          cat artifacts/results-junit.xml
-          ls artifacts/
-      
-      - name: Check Preflight logs
-        run: |
-          cat preflight.log
-       
-      - name: Check results output
-        run: |
-          cat artifacts/results.json
+          sshpass -p Changepassword@123 ssh root@9.30.223.152
+          arch
+          pwd
