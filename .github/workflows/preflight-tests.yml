@@ -22,6 +22,11 @@ jobs:
         run: |
           sudo lscpu
 
+      - name: Do the cleanup
+        run: |
+          rm -rf preflight-linux-.*
+          rm -rf /usr/local/bin/preflight
+
       - name: Install preflight 
         run: |
           sudo curl -s https://api.github.com/repos/redhat-openshift-ecosystem/openshift-preflight/releases/latest|grep browser_download_url |grep ppc64le|cut -d : -f 2,3|tr -d \"|xargs curl -LO
