@@ -49,7 +49,7 @@ jobs:
       - name: Check Preflight logs
         run: |
           cat preflight.log
-       
+          
       - name: Check results output
         run: |
           cat artifacts/results.json
