@@ -52,6 +52,5 @@ jobs:
           
       - name: Check results output
         run: |
-          cat artifacts/results.json
-          
+          cat artifacts/results.json          
           
