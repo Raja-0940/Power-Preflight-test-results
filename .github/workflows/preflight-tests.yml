@@ -37,7 +37,7 @@ jobs:
         run: |
           export PFLT_LOGLEVEL=trace
           export PFLT_JUNIT=true
-          preflight check container quay.io/mayurwaghmode111/demo-container-image:power
+          preflight check container quay.io/raja0940/demo-container-image:power
           
       - name: Check junit xml results
         run: |
