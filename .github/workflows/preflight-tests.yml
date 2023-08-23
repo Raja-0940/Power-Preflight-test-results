@@ -43,12 +43,12 @@ jobs:
           
       - name: Check junit xml results
         run: |
-          cat artifacts/results-junit.xml
-          ls artifacts/
+          cat artifacts/ppc64le/results-junit.xml
+          ls artifacts/ppc64le/
       
       - name: Check Preflight logs
         run: |
-          cat preflight.log          
+          cat preflight.log
       - name: Check results output
         run: |
-          cat artifacts/results.json
+          cat artifacts/ppc64le/results.json
