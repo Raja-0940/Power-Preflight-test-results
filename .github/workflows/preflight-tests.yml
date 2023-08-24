@@ -16,7 +16,7 @@ jobs:
             architecture: [ s390x, ppc64le ]
           fail-fast: false
           max-parallel: 2
-      runs-on: ${{ matrix.architecture }}
+      runs-on: 'ubuntu:20.04'
       steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
