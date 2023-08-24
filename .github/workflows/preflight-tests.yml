@@ -44,7 +44,7 @@ jobs:
         run: |
           export PFLT_LOGLEVEL=trace
           export PFLT_JUNIT=true
-          preflight check container quay.io/raja0940/rhel-ubi9:power
+          preflight check container quay.io/raja0940/rhel-ubi9:latest
           
       - name: Check junit xml results
         run: |
